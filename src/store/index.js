@@ -5,11 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    darkTheme: true
+    darkTheme: localStorage.getItem("darktheme") === "true"
   },
   mutations: {
     toggleTheme(state) {
       state.darkTheme = !state.darkTheme;
+      localStorage.setItem("darktheme", state.darkTheme);
     }
   },
   actions: {
